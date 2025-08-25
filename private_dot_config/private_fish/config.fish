@@ -9,6 +9,7 @@ set -x FZF_DEFAULT_OPTS '
   --marker=">" --pointer="◆" --separator="─" --scrollbar="│"
   --layout="reverse" --info="right"'
 
+set -x EDITOR vim
 set -x PATH ~/bin $PATH
 
 if status is-interactive
