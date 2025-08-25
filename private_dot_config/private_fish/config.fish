@@ -9,6 +9,8 @@ set -x FZF_DEFAULT_OPTS '
   --marker=">" --pointer="◆" --separator="─" --scrollbar="│"
   --layout="reverse" --info="right"'
 
+set -x PATH ~/bin $PATH
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     nvm use 22
