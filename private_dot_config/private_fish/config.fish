@@ -14,7 +14,7 @@ set -x PATH ~/bin $PATH
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    nvm use 22
+    nvm use $NODE_VERSION
 
     fastfetch
 end
