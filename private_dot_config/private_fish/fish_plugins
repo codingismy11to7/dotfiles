@@ -1,3 +1,6 @@
 jorgebucaran/fisher
 jorgebucaran/nvm.fish
-patrickf1/fzf.fish
+reitzig/sdkman-for-fish@v2.1.0
+danhper/fish-ssh-agent
+ilancosman/tide@v6
+patrickf1/fzf.fish@v10.1
