@@ -22,10 +22,10 @@ unzip fc.zip
 mv ./ttf/* ~/.local/share/fonts/
 
 echo "FiraCode Nerd Font"
+
 cd (mktemp -d)
 curl -L -o fcnf.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip
 unzip fcnf.zip
-rm *FontPropo*
 mv *.ttf ~/.local/share/fonts/
 
 echo "Updating font cache..."

@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+
+# fish_plugins hash: {{ include "private_dot_config/private_fish/fish_plugins" | sha256sum }}
+source {{ joinPath .chezmoi.sourceDir "fisher.fish" | quote }}
+fisher update

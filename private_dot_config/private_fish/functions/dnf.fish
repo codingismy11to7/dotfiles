@@ -1,3 +1,4 @@
-function dnf
-    sudo dnf $argv
+function dnf --description 'alias dnf sudo dnf'
+  sudo dnf $argv
+        
 end
