@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set VERSION 2025.33
+set VERSION 2025.34
 
 switch (arch)
   case aarch64
