@@ -64,3 +64,5 @@ selection-invert-fg-bg = true
 
 keybind = ctrl+enter=unbind
 keybind = f11=toggle_fullscreen
+
+keybind = super+`=toggle_quick_terminal
