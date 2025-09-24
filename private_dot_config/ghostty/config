@@ -42,10 +42,15 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-font-family = FiraCode Nerd Font
-font-family-bold = FiraCode Nerd Font Bold
-font-family-italic = FiraCode Nerd Font Light
-font-family-bold-italic = FiraCode Nerd Font SemBd
+#font-family = Fira Code
+#font-family-bold = FiraCode Nerd Font Bold
+#font-family-italic = FiraCode Nerd Font Light
+#font-family-bold-italic = FiraCode Nerd Font SemBd
+
+font-family = MesloLGS NF
+#font-family-bold = MesloLGS NF Bold
+#font-family-italic = MesloLGS NF Italic
+#font-family-bold-italic = MesloLGS NF Bold Italic
 
 font-size = 13
 
@@ -55,14 +60,21 @@ background-opacity = 0.7
 
 background-blur = true
 
-window-width = 107
-window-height = 33
+#window-width = 107
+#window-height = 33
 
 window-theme = ghostty
+
+quit-after-last-window-closed = false
 
 selection-invert-fg-bg = true
 
 keybind = ctrl+enter=unbind
 keybind = f11=toggle_fullscreen
 
-keybind = super+`=toggle_quick_terminal
+keybind = global:super+backquote=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-size = 48%,80%
+
+shell-integration-features = ssh-terminfo
+
