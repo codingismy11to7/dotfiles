@@ -1,8 +1,8 @@
 gui:
   nerdFontsVersion: "3"
   spinner:
-    frames: ['⣷', '⣯', '⣟', '⡿', '⢿', '⣻', '⣽', '⣾']
-    rate: 75
+    frames: ["🕛 ","🕐 ","🕑 ","🕒 ","🕓 ","🕔 ","🕕 ","🕖 ","🕗 ","🕘 ","🕙 ","🕚 "]
+    rate: 100
 git:
   ignoreWhitespaceInDiffView: true
   log:
