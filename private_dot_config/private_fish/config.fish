@@ -12,6 +12,10 @@ set -x FZF_DEFAULT_OPTS '
 set -x EDITOR vim
 set -x PATH ~/bin $PATH
 
+bind ctrl-l "source "(realpath (status -f)) repaint
+bind ctrl-alt-l _lazygit_log
+bind ctrl-alt-s _lazygit_status
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     nvm use $NODE_VERSION
