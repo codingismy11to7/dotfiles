@@ -1,0 +1,13 @@
+gui:
+  nerdFontsVersion: "3"
+  spinner:
+    frames: ['⣷', '⣯', '⣟', '⡿', '⢿', '⣻', '⣽', '⣾']
+    rate: 75
+git:
+  ignoreWhitespaceInDiffView: true
+  log:
+    showGraph: 'when-maximised'
+    showWholeGraph: true
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
