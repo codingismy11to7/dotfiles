@@ -35,6 +35,7 @@
             fzf
             git
             lazygit
+            mdcat
             nixfmt
             sourcegit
             unzip
