@@ -1,0 +1,17 @@
+#!/usr/bin/env fish
+
+# {{ include "nixingismy11to7/tools/flake.lock" | sha256sum }}
+# {{ include "nixingismy11to7/tools/flake.nix" | sha256sum }}
+
+cd {{ .chezmoi.sourceDir }}
+
+for dir in ./nixingismy11to7/*
+  set --local flake (basename $dir)
+  if nix profile list --json | nix run nixpkgs#jq -- -e '.elements["nixingismy11to7/'$flake'"]' > /dev/null
+    echo upgrading $flake
+    nix profile upgrade nixingismy11to7/$flake
+  else
+    echo adding flake $flake
+    nix profile add $dir
+  end
+end

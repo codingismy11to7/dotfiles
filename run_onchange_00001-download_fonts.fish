@@ -28,7 +28,9 @@ curl -L -o fcnf.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3
 unzip fcnf.zip
 mv *.ttf ~/.local/share/fonts/
 
-echo "Updating font cache..."
-fc-cache -f -v
+if command -q fc-cache
+  echo "Updating font cache..."
+  fc-cache -f -v
+end
 
 echo "done"

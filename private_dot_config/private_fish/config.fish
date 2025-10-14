@@ -10,15 +10,15 @@ set -x FZF_DEFAULT_OPTS '
   --layout="reverse" --info="right"'
 
 set -x EDITOR vim
-set -x PATH ~/bin $PATH
+set -x PATH ~/bin ~/.nix-profile/bin $PATH
 
 bind ctrl-l "source "(realpath (status -f)) repaint
 bind ctrl-alt-l _lazygit_log
 bind ctrl-alt-s _lazygit_status
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-    nvm use $NODE_VERSION
+    # if it's already installed this acts as `nvm use`
+    nvm install $NODE_VERSION
 
     fastfetch
 end
