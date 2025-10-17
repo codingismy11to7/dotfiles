@@ -1,0 +1,3 @@
+[submodule "omarchy"]
+	path = _hyprland/omarchy
+	url = https://github.com/basecamp/omarchy.git
