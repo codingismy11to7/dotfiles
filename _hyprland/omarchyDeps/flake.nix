@@ -4,10 +4,17 @@
   inputs = {
     # The primary source for packages
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    tte_flake.url = "github:ChrisBuilds/terminaltexteffects";
   };
 
   outputs =
-    { self, nixpkgs, ... }:
+    {
+      self,
+      nixpkgs,
+      tte_flake,
+      ...
+    }:
     let
       # List of systems you want to support
       systems = [
@@ -24,35 +31,59 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+
+          polkit_gnome = pkgs.polkit_gnome;
+          polkit-gnome-agent = pkgs.writeShellScriptBin "polkit-gnome-agent" ''
+            exec ${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
+          '';
+
           # Essential Hyprland packages - cannot be excluded
           hyprlandPackages = with pkgs; [
+            hypridle
             hyprshot
             hyprpicker
             hyprsunset
             brightnessctl
+            evince
+            gnome-themes-extra
+            mako
             pamixer
             playerctl
-            gnome-themes-extra
-            pavucontrol
+            polkit-gnome-agent
+            swaybg
+            swayosd
+            walker
+            waybar
+            wl-clip-persist
           ];
 
           # Essential system packages - cannot be excluded
           systemPackages = with pkgs; [
-            git
+            chromium
+            dust
+            imv
+            mpv
+            polkit_gnome
+            power-profiles-daemon
             vim
+            curl
+            eza
+            fd
+            fzf
+            git
+            gum
             libnotify
             nautilus
+            alacritty
             alejandra
             blueberry
             clipse
-            fzf
-            zoxide
             ripgrep
-            eza
-            fd
-            # curl
+            tte_flake.packages.${system}.default
+            tzupdate
             unzip
             wget
+            zoxide
             gnumake
           ];
         in

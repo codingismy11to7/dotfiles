@@ -45,12 +45,12 @@ config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-#font-family = Fira Code
+font-family = Fira Code
 #font-family-bold = FiraCode Nerd Font Bold
 #font-family-italic = FiraCode Nerd Font Light
 #font-family-bold-italic = FiraCode Nerd Font SemBd
 
-font-family = MesloLGS NF
+#font-family = MesloLGS NF
 #font-family-bold = MesloLGS NF Bold
 #font-family-italic = MesloLGS NF Italic
 #font-family-bold-italic = MesloLGS NF Bold Italic
