@@ -16,6 +16,16 @@ bind ctrl-l "source "(realpath (status -f)) repaint
 bind ctrl-alt-l _lazygit_log
 bind ctrl-alt-s _lazygit_status
 
+# ok so gemini and i came up with this, it's valid at this moment, who
+# knows if it will break in the future. try to grab all the exports
+# from the nixGL script and load them into our environment. today this
+# script is just a shebang, an empty line, exports, and then an exec 
+# $argv line. so just extracting the variables is ok, today.
+set nixGL_path (which nixGL)
+if test -n "$nixGL_path"
+    cat $nixGL_path | grep '^\s*export ' | bass source /dev/stdin
+end
+
 if status is-interactive
     # if it's already installed this acts as `nvm use`
     nvm install $NODE_VERSION
