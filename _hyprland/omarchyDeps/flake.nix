@@ -40,6 +40,9 @@
           # Essential Hyprland packages - cannot be excluded
           hyprlandPackages = with pkgs; [
             hypridle
+            hyprland-qtutils
+            hyprland
+            hyprlock
             hyprshot
             hyprpicker
             hyprsunset
@@ -63,7 +66,6 @@
             dust
             imv
             mpv
-            polkit_gnome
             power-profiles-daemon
             vim
             curl
@@ -72,6 +74,7 @@
             fzf
             git
             gum
+            imagemagick
             libnotify
             nautilus
             alacritty
