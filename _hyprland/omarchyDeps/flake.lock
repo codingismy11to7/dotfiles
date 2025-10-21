@@ -6,15 +6,16 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1761058617,
-        "narHash": "sha256-shiCaNLRUyyQBfDghMh95qvLcfR0hujM1FMhbfB0vy4=",
-        "owner": "abenz1267",
+        "lastModified": 1761037037,
+        "narHash": "sha256-DHwHk5Y2ns9CJdRBPIE7KJl5FVvQT5mFYHum0q4oui0=",
+        "owner": "Ori-Riaru",
         "repo": "elephant",
-        "rev": "a7e0d0d4c1c22e40f71dae80cdabf07578a02154",
+        "rev": "42b01ac09ebca31cb5195b432df712e353b484ea",
         "type": "github"
       },
       "original": {
-        "owner": "abenz1267",
+        "owner": "Ori-Riaru",
+        "ref": "windows-provider",
         "repo": "elephant",
         "type": "github"
       }
