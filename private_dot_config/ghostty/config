@@ -73,7 +73,8 @@ quit-after-last-window-closed = false
 selection-invert-fg-bg = true
 
 keybind = ctrl+enter=unbind
-keybind = f11=toggle_fullscreen
+# think omarchy is doing something global here maybe
+# keybind = f11=toggle_fullscreen
 
 keybind = global:super+backquote=toggle_quick_terminal
 quick-terminal-position = top
