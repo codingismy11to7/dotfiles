@@ -21,9 +21,11 @@ bind ctrl-alt-s _lazygit_status
 # from the nixGL script and load them into our environment. today this
 # script is just a shebang, an empty line, exports, and then an exec 
 # $argv line. so just extracting the variables is ok, today.
-set nixGL_path (which nixGL)
-if test -n "$nixGL_path"
-    cat $nixGL_path | grep '^\s*export ' | bass source /dev/stdin
+if command -q nixGL
+    set nixGL_path (which nixGL)
+    if test -n "$nixGL_path"
+        cat $nixGL_path | grep '^\s*export ' | bass source /dev/stdin
+    end
 end
 
 if status is-interactive
