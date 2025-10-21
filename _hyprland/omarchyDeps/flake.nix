@@ -62,6 +62,7 @@
             walker
             waybar
             wl-clip-persist
+            wl-clipboard
           ];
 
           # Essential system packages - cannot be excluded
