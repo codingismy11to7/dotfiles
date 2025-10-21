@@ -5,14 +5,14 @@
     # The primary source for packages
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    tte_flake.url = "github:ChrisBuilds/terminaltexteffects";
+    elephlake.url = "github:abenz1267/elephant";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      tte_flake,
+      elephlake,
       ...
     }:
     let
@@ -49,12 +49,14 @@
             brightnessctl
             evince
             gnome-themes-extra
+            gpu-screen-recorder
             mako
             pamixer
             playerctl
             polkit-gnome-agent
             swaybg
             swayosd
+            uwsm
             walker
             waybar
             wl-clip-persist
@@ -81,8 +83,9 @@
             alejandra
             blueberry
             clipse
+            elephlake.packages.${system}.default
             ripgrep
-            tte_flake.packages.${system}.default
+            terminaltexteffects
             tzupdate
             unzip
             wget
