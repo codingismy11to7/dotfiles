@@ -11,7 +11,7 @@ set -x FZF_DEFAULT_OPTS '
 
 
 set -x EDITOR vim
-set -x PATH ~/bin ~/.nix-profile/bin $PATH
+set -x PATH ~/bin ~/.local/share/omarchy/bin ~/.nix-profile/bin $PATH
 
 bind ctrl-l "source "(realpath (status -f)) repaint
 bind ctrl-alt-l _lazygit_log
@@ -34,7 +34,4 @@ if status is-interactive
     nvm install $NODE_VERSION
 
     fastfetch
-
-echo $XDG_DATA_DIRS
-systemctl --user set-environment XDG_DATA_DIRS (string join : $XDG_DATA_DIRS)
 end

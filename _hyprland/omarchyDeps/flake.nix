@@ -80,6 +80,7 @@
             gum
             imagemagick
             libnotify
+            libxkbcommon
             nautilus
             alacritty
             alejandra
