@@ -5,7 +5,9 @@
     # The primary source for packages
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    elephlake.url = "github:abenz1267/elephant";
+    # bug happening literally right now
+    # elephlake.url = "github:abenz1267/elephant";
+    elephlake.url = "github:Ori-Riaru/elephant/windows-provider";
   };
 
   outputs =
