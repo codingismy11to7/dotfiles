@@ -9,6 +9,7 @@ set -x FZF_DEFAULT_OPTS '
   --marker=">" --pointer="◆" --separator="─" --scrollbar="│"
   --layout="reverse" --info="right"'
 
+
 set -x EDITOR vim
 set -x PATH ~/bin ~/.nix-profile/bin $PATH
 
@@ -33,4 +34,7 @@ if status is-interactive
     nvm install $NODE_VERSION
 
     fastfetch
+
+echo $XDG_DATA_DIRS
+systemctl --user set-environment XDG_DATA_DIRS (string join : $XDG_DATA_DIRS)
 end
