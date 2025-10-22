@@ -101,3 +101,7 @@ git clone --recursive --branch hyprismy11to7 https://github.com/codingismy11to7/
 # was just experimenting with nix's kitty and it would not run
 # and it turns out that the docs were correct and i do need this
 nix profile add github:guibou/nixGL --impure
+
+
+# need to permanently add nix directories to systemctl
+systemctl --user set-environment XDG_DATA_DIRS (string join : $XDG_DATA_DIRS)
