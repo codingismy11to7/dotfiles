@@ -37,6 +37,7 @@
             lazygit
             mdcat
             nixfmt
+            neovim
             sourcegit
             unzip
             vim

@@ -9,7 +9,7 @@ set -x FZF_DEFAULT_OPTS '
   --marker=">" --pointer="◆" --separator="─" --scrollbar="│"
   --layout="reverse" --info="right"'
 
-set -x EDITOR vim
+set -x EDITOR nvim
 set -x PATH ~/bin ~/.nix-profile/bin $PATH
 
 bind ctrl-l "source "(realpath (status -f)) repaint
