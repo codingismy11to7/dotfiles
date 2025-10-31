@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+# {{ include ".git/modules/iTerm2-Color-Schemes/index" | sha256sum }}
+
+cd {{ .chezmoi.sourceDir }}
+
+mkdir -p ~/.config/ghostty/themes/
+
+cp ./iTerm2-Color-Schemes/ghostty/* ~/.config/ghostty/themes/
+
+echo "copied iTerm2 color schemes to ghostty themes"
