@@ -7,7 +7,7 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }:
+    { nixpkgs, ... }:
     let
       # List of systems you want to support
       systems = [
@@ -39,7 +39,6 @@
             mdcat
             nixfmt
             neovim
-            sourcegit
             statix
             unzip
             vim
