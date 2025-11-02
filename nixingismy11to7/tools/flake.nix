@@ -40,6 +40,7 @@
             nixfmt
             neovim
             sourcegit
+            statix
             unzip
             vim
             wget
