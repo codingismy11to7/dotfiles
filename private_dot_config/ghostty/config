@@ -78,3 +78,5 @@ quick-terminal-size = 48%,80%
 
 shell-integration-features = ssh-terminfo
 
+copy-on-select = clipboard
+
