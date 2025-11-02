@@ -26,6 +26,7 @@
           pkgs = nixpkgs.legacyPackages.${system};
           the-needfuls = with pkgs; [
             bat
+            bitwarden-cli
             btop
             chafa
             curl

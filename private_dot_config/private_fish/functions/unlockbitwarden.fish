@@ -1,3 +1,3 @@
 function unlockbitwarden
-set -gx BW_SESSION (bw unlock --raw)
+    set -Ux BW_SESSION (bw unlock --raw)
 end
