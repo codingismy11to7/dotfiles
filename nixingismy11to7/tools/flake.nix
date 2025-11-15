@@ -27,7 +27,6 @@
           the-needfuls = with pkgs; [
             bat
             bitwarden-cli
-            btop
             chafa
             curl
             delta
@@ -37,8 +36,9 @@
             git
             lazygit
             mdcat
-            nixfmt
+            ncdu
             neovim
+            nixfmt
             statix
             unzip
             vim
