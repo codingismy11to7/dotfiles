@@ -80,7 +80,7 @@ keybinds clear-defaults=true {
         bind "up" { MovePane "up"; }
         bind "right" { MovePane "right"; }
         bind "h" { MovePane "left"; }
-        bind "Ctrl m" { SwitchToMode "normal"; }
+        bind "Ctrl h" { SwitchToMode "normal"; }
         bind "j" { MovePane "down"; }
         bind "k" { MovePane "up"; }
         bind "l" { MovePane "right"; }
@@ -177,7 +177,7 @@ keybinds clear-defaults=true {
         bind "Ctrl q" { Quit; }
     }
     shared_except "locked" "move" {
-        bind "Ctrl m" { SwitchToMode "move"; }
+        bind "Ctrl h" { SwitchToMode "move"; }
     }
     shared_except "locked" "session" {
         bind "Ctrl o" { SwitchToMode "session"; }
@@ -245,7 +245,7 @@ keybinds clear-defaults=true {
 plugins {
     autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
       is_enabled true
-      triggers "nvim|vim"
+      triggers "nvim|vim|git"
       reaction_seconds "0.3"
     }
     about location="zellij:about"
