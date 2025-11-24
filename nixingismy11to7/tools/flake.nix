@@ -39,6 +39,7 @@
             ncdu
             neovim
             nixfmt
+            ripgrep
             statix
             unzip
             vim
