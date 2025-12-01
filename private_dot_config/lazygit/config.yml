@@ -8,6 +8,6 @@ git:
   log:
     showGraph: 'when-maximised'
     showWholeGraph: true
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
