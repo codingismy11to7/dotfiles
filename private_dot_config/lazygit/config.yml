@@ -2,12 +2,12 @@ gui:
   nerdFontsVersion: "3"
   spinner:
     frames: ["🕛 ","🕐 ","🕑 ","🕒 ","🕓 ","🕔 ","🕕 ","🕖 ","🕗 ","🕘 ","🕙 ","🕚 "]
-    rate: 100
+    rate: 250
 git:
   ignoreWhitespaceInDiffView: true
   log:
     showGraph: 'when-maximised'
-    showWholeGraph: true
+    showWholeGraph: false
   pagers:
     - colorArg: always
       pager: delta --dark --paging=never
