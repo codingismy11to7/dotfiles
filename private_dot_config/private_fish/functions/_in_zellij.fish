@@ -1,3 +1,3 @@
 function _in_zellij
-  return (set --query ZELLIJ)
+    return (test -n "$ZELLIJ_SESSION_NAME")
 end
