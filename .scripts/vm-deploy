@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CACHE_FILE="$HOME/.cache/dotfiles-vm-deploy"
+
+# Load defaults from cache
+if [[ -f "$CACHE_FILE" ]]; then
+  source "$CACHE_FILE"
+fi
+DEFAULT_IP=${VM_IP:-192.168.122.243}
+DEFAULT_USER=${VM_USER:-steven}
+
+# Parse arguments
+SWITCH=false
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -s|--switch)
+      SWITCH=true
+      shift
+      ;;
+    -h|--help)
+      echo "Usage: $(basename "$0") [OPTIONS]"
+      echo ""
+      echo "Sync dotfiles and omarchy to VM, then build."
+      echo ""
+      echo "Options:"
+      echo "  -s, --switch  Run 'nh os switch' instead of 'nh os build'"
+      echo "  -h, --help    Show this help message"
+      exit 0
+      ;;
+    *)
+      echo "Unknown option: $1"
+      exit 1
+      ;;
+  esac
+done
+
+# Prompt for VM details
+VM_IP=$(@gum@ input --placeholder "$DEFAULT_IP" --header "VM IP address:")
+VM_USER=$(@gum@ input --placeholder "$DEFAULT_USER" --header "VM username:")
+
+# Apply defaults if empty
+VM_IP=${VM_IP:-$DEFAULT_IP}
+VM_USER=${VM_USER:-$DEFAULT_USER}
+
+TARGET="$VM_USER@$VM_IP"
+
+# Save to cache
+cat > "$CACHE_FILE" <<EOF
+VM_IP="$VM_IP"
+VM_USER="$VM_USER"
+EOF
+
+echo "Syncing to $TARGET..."
+
+# Ensure remote directories exist
+ssh "$TARGET" "mkdir -p ~/dev"
+
+# Sync dotfiles and omarchy
+@rsync@ -avz --exclude='.direnv' --exclude='result' ~/dotfiles/ "$TARGET:~/dotfiles/"
+@rsync@ -avz --exclude='.direnv' --exclude='result' ~/dev/omarchy/ "$TARGET:~/dev/omarchy/"
+
+# Update omarchy flake input and build
+if [[ "$SWITCH" == "true" ]]; then
+  CMD="nh os switch ."
+else
+  CMD="nh os build ."
+fi
+
+echo "Building on VM..."
+ssh "$TARGET" "cd ~/dotfiles && nix flake update omarchy && $CMD"
+
+echo "Done!"
