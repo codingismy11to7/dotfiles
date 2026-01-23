@@ -2,8 +2,8 @@ _: {
   dotfiles = {
     personal.gitEmail = "codingismy11to7@gmail.com";
     monitorConfig = ''
-      env = GDK_SCALE,1.5
-      monitor=,preferred,auto,1.6,bitdepth,10
+      env = GDK_SCALE,1
+      monitor=Virtual-1,1920x1080,auto,1
     '';
   };
 }

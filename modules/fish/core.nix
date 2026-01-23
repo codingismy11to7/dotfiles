@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   cfg = config.dotfiles;
-  inherit (cfg) username;
+  inherit (cfg.personal) username;
 in
 {
   users.users.${username}.shell = pkgs.fish;

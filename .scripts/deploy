@@ -1,0 +1,126 @@
+set -euo pipefail
+
+FLAKE_DIR="."
+CACHE_FILE="$HOME/.cache/dotfiles-deploy"
+
+# Load defaults from cache or use fallbacks
+if [[ -f "$CACHE_FILE" ]]; then
+  source "$CACHE_FILE"
+fi
+DEFAULT_HOSTNAME=${HOSTNAME:-nixxy386}
+DEFAULT_EMAIL=${EMAIL:-codingismy11to7@gmail.com}
+DEFAULT_USERNAME=${USERNAME:-nixos}
+DEFAULT_IP=${IP_ADDRESS:-192.168.0.100}
+DEFAULT_LOCAL_STORE=${LOCAL_STORE:-false}
+
+# Prompt for configuration
+HOSTNAME=$(@gum@ input --placeholder "$DEFAULT_HOSTNAME" --header "Hostname:")
+EMAIL=$(@gum@ input --placeholder "$DEFAULT_EMAIL" --header "Email address:")
+USERNAME=$(@gum@ input --placeholder "$DEFAULT_USERNAME" --header "SSH username:")
+IP_ADDRESS=$(@gum@ input --placeholder "$DEFAULT_IP" --header "IP address:")
+
+# Prompt for local store deployment
+LOCAL_STORE_FLAG=""
+if [[ "$DEFAULT_LOCAL_STORE" == "true" ]]; then
+  LOCAL_STORE_FLAG="--default=Yes"
+fi
+if @gum@ confirm $LOCAL_STORE_FLAG "Deploy from local store (disable binary cache)?"; then
+  LOCAL_STORE=true
+else
+  LOCAL_STORE=false
+fi
+
+PASSPHRASE=$(@gum@ input --password --header "Boot passphrase:")
+
+# Apply defaults if empty
+HOSTNAME=${HOSTNAME:-$DEFAULT_HOSTNAME}
+EMAIL=${EMAIL:-$DEFAULT_EMAIL}
+USERNAME=${USERNAME:-$DEFAULT_USERNAME}
+IP_ADDRESS=${IP_ADDRESS:-$DEFAULT_IP}
+PASSPHRASE_CONFIRM=$(@gum@ input --password --header "Confirm passphrase:")
+
+if [[ "$PASSPHRASE" != "$PASSPHRASE_CONFIRM" ]]; then
+  echo "Passphrases do not match!"
+  exit 1
+fi
+
+TARGET="$USERNAME@$IP_ADDRESS"
+HOST_DIR="$FLAKE_DIR/hosts/$HOSTNAME"
+
+# Copy missing host template files
+TEMPLATE_DIR="$FLAKE_DIR/hosts/nixorge"
+mkdir -p "$HOST_DIR"
+
+COPIED_FILES=false
+for file in default.nix config.nix disk-config.nix hardware.nix; do
+  if [[ ! -f "$HOST_DIR/$file" ]]; then
+    echo "Copying $file..."
+    cp "$TEMPLATE_DIR/$file" "$HOST_DIR/$file"
+    COPIED_FILES=true
+  fi
+done
+
+# Update config.nix with email (idempotent)
+sed -i "s/codingismy11to7@gmail.com/$EMAIL/" "$HOST_DIR/config.nix"
+
+# Remove facter.json - will be regenerated on target
+rm -f "$HOST_DIR/facter.json"
+
+if [[ "$COPIED_FILES" == "true" ]]; then
+  # Add hostname to flake.nix hosts list if not present
+  if ! grep -q "\"$HOSTNAME\"" "$FLAKE_DIR/flake.nix"; then
+    sed -i "s/hosts = \[/hosts = [\n            \"$HOSTNAME\"/" "$FLAKE_DIR/flake.nix"
+    echo "Added $HOSTNAME to flake.nix hosts list."
+  fi
+
+  # Stage new/updated host files
+  @git@ -C "$FLAKE_DIR" add "$HOST_DIR" "$FLAKE_DIR/flake.nix"
+  echo "Host files copied and staged."
+
+  if @gum@ confirm "Edit disk-config.nix before continuing?"; then
+    ${EDITOR:-nano} "$HOST_DIR/disk-config.nix"
+  fi
+fi
+
+# Create temp directory for extra files
+TEMP_DIR=$(mktemp -d)
+SECRET_KEY="/tmp/secret.key"
+trap 'rm -rf "$TEMP_DIR" "$SECRET_KEY"' EXIT
+
+echo "Preparing sops keys..."
+
+# Mirror /var/lib/sops with correct permissions
+mkdir -p "$TEMP_DIR/var/lib/sops"
+sudo cp /var/lib/sops/age-keys.txt "$TEMP_DIR/var/lib/sops/"
+sudo chown root:wheel "$TEMP_DIR/var/lib/sops/age-keys.txt"
+sudo chmod 440 "$TEMP_DIR/var/lib/sops/age-keys.txt"
+
+# Write passphrase to separate temp file for disko (not in extra-files!)
+echo -n "$PASSPHRASE" > "$SECRET_KEY"
+
+# Save values to cache for next time
+cat > "$CACHE_FILE" <<EOF
+HOSTNAME="$HOSTNAME"
+EMAIL="$EMAIL"
+USERNAME="$USERNAME"
+IP_ADDRESS="$IP_ADDRESS"
+LOCAL_STORE="$LOCAL_STORE"
+EOF
+
+echo "Deploying $HOSTNAME to $TARGET..."
+
+NIXOS_ANYWHERE_ARGS=(
+  --disk-encryption-keys /tmp/secret.key "$SECRET_KEY"
+  --extra-files "$TEMP_DIR"
+  --generate-hardware-config nixos-facter "$HOST_DIR/facter.json"
+  --flake "$FLAKE_DIR#$HOSTNAME"
+)
+
+if [[ "$LOCAL_STORE" == "true" ]]; then
+  echo "Using local store (--no-substitute-on-destination)..."
+  NIXOS_ANYWHERE_ARGS+=(--no-substitute-on-destination)
+fi
+
+@nixosAnywhere@ "${NIXOS_ANYWHERE_ARGS[@]}" "$TARGET"
+
+echo "Deployment complete!"
