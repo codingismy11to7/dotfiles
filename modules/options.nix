@@ -79,16 +79,13 @@ in
           };
         };
 
+        gaming = mkEnableOption "gaming packages";
+
         fastfetchLogo = mkOption {
           type = nullOr path;
           default = null;
         };
 
-        monitorConfig = mkOption {
-          type = lines;
-          default = "";
-          description = "Hyprland monitor configuration";
-        };
       };
     };
   };
