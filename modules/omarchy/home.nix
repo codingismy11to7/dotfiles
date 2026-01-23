@@ -1,16 +1,17 @@
 {
   inputs,
+  lib,
   osConfig,
   pkgs,
   ...
 }:
 let
   cfg = osConfig.dotfiles;
+  inherit (lib) mkDefault;
   inherit (cfg)
     headless
     keyboardLayout
     keyboardVariant
-    monitorConfig
     ;
 in
 {
@@ -20,27 +21,26 @@ in
 
   omarchy = {
     enable = !headless;
-    theme = "ethereal";
-    firstRunMode = false;
-    browser.webapp = pkgs.unstable.microsoft-edge;
-    font.name = "FiraCode Nerd Font";
-    font.package = pkgs.nerd-fonts.fira-code;
+    theme = mkDefault "ethereal";
+    firstRunMode = mkDefault false;
+    browser.webapp = mkDefault pkgs.unstable.microsoft-edge;
+    font.name = mkDefault "FiraCode Nerd Font";
+    font.package = mkDefault pkgs.nerd-fonts.fira-code;
     keyboard = {
-      layout = keyboardLayout;
-      variant = keyboardVariant;
-      options = "compose:ralt";
+      layout = mkDefault keyboardLayout;
+      variant = mkDefault keyboardVariant;
+      options = mkDefault "compose:ralt";
     };
     hyprland = {
-      package = pkgs.unstable.hyprland;
-      inherit monitorConfig;
-      widerWindowGaps = true;
-      dwindleExtra = "single_window_aspect_ratio = 16 9";
+      package = mkDefault pkgs.unstable.hyprland;
+      widerWindowGaps = mkDefault true;
+      dwindleExtra = mkDefault "single_window_aspect_ratio = 16 9";
     };
-    passwordManager = "bitwarden";
+    passwordManager = mkDefault "bitwarden";
     screensaver = {
-      activationMinutes = 5;
-      lockMinutes = 15;
-      screenOffDelaySeconds = 60;
+      activationMinutes = mkDefault 5;
+      lockMinutes = mkDefault 15;
+      screenOffDelaySeconds = mkDefault 60;
     };
   };
 }

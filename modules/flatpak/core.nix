@@ -1,13 +1,17 @@
-{ inputs, ... }:
+{ config, inputs, lib, ... }:
+let
+  cfg = config.dotfiles;
+in
 {
   imports = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
 
   services.flatpak = {
-    enable = true;
+    enable = !cfg.headless;
     packages = [
-      "com.dosbox_x.DOSBox-X"
       "com.github.tchx84.Flatseal"
       "io.anytype.anytype"
+    ] ++ lib.optionals cfg.gaming [
+      "com.dosbox_x.DOSBox-X"
       "io.github.dosbox-staging"
     ];
     update.onActivation = true;

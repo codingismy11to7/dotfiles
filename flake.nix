@@ -32,6 +32,16 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    sentinelone = {
+      url = "github:codingismy11to7/sentinelone-nix";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+
+    fleet = {
+      url = "github:codingismy11to7/fleetdm-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     omarchy = {
       url = "github:codingismy11to7/omarchy";
       # url = "path:/home/steven/dev/omarchy";
@@ -56,6 +66,7 @@
       hosts = [
         "nixorge"
         "nixvm"
+        "nixxy386"
       ];
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
