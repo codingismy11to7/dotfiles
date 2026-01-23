@@ -6,6 +6,10 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default-linux";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     disko = {
@@ -34,10 +38,12 @@
 
     omarchy = {
       url = "github:codingismy11to7/omarchy";
+      # url = "path:/home/steven/dev/omarchy";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
         flake-parts.follows = "flake-parts";
+        flake-utils.follows = "flake-utils";
         home-manager.follows = "home-manager";
       };
     };
@@ -45,12 +51,17 @@
 
   outputs =
     inputs@{
-      disko,
       flake-parts,
       systems,
       ...
     }:
     with builtins;
+    let
+      hosts = [
+        "nixorge"
+        "nixvm"
+      ];
+    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;
 
@@ -66,12 +77,26 @@
               inherit (lib) getExe;
             in
             pkgs.mkShell {
-              packages = [
+              packages = with pkgs; [
+                deadnix
+                nixd
+                statix
+                uv
+
+                (writeShellScriptBin "deploy" (
+                  readFile (
+                    replaceVars ./.scripts/deploy {
+                      git = getExe git;
+                      gum = getExe gum;
+                      nixosAnywhere = getExe nixos-anywhere;
+                    }
+                  )
+                ))
                 (writeShellScriptBin "dev-mode" (
                   readFile (
                     replaceVars ./.scripts/dev-mode {
-                      nh = getExe pkgs.nh;
-                      watchexec = getExe pkgs.watchexec;
+                      nh = getExe nh;
+                      watchexec = getExe watchexec;
                     }
                   )
                 ))
@@ -103,12 +128,9 @@
                 ./modules/home.nix
                 ./modules/options.nix
                 ./hosts/${host}
+                { networking.hostName = host; }
               ];
             };
-
-          hosts = [
-            "nixorge"
-          ];
         in
         {
           nixosConfigurations = listToAttrs (

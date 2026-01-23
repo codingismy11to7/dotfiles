@@ -9,7 +9,7 @@ in
 
   secrets = {
     enable = true;
-    inherit (cfg) username;
+    inherit (cfg.personal) username;
     users.enable = true;
     enableGithubToken = true;
   };

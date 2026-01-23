@@ -2,7 +2,7 @@
 let
   cfg = config.dotfiles;
 
-  inherit (cfg) username;
+  inherit (cfg.personal) username;
 in
 {
   imports = [
@@ -13,11 +13,25 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "hm-backup";
-    extraSpecialArgs = { inherit inputs config; };
+    extraSpecialArgs = { inherit inputs; };
 
     users.${username} = {
       imports = [
+        ./direnv/home.nix
+        ./face-melter/home.nix
+        ./fish/home.nix
+        ./git/home.nix
+        ./lazygit/home.nix
+        ./nix-your-shell/home.nix
+        ./nvim/home.nix
+        ./omarchy/home.nix
+        ./packages/home.nix
+        ./podman/home.nix
         ./secrets/home.nix
+        ./services/home.nix
+        ./tealdeer/home.nix
+        ./virt-manager/home.nix
+        ./zellij/home.nix
       ];
 
       home = {
