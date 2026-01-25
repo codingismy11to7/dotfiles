@@ -1,8 +1,10 @@
-{ lib, osConfig, pkgs, ... }:
+{ config, lib, osConfig, pkgs, ... }:
 let
   cfg = osConfig.dotfiles;
   inherit (cfg) headless gaming;
   inherit (lib) mkIf;
+
+  browserPkg = pkgs.unstable.${cfg.browser};
 
   stablePackages = with pkgs; [
     diffutils
@@ -28,7 +30,7 @@ let
       with pkgs.unstable;
       [
         bitwarden-desktop
-        brave
+        (config.omarchy.browser.wrapWithExtension browserPkg)
         discord
         slack
       ];

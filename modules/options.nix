@@ -103,6 +103,16 @@ in
 
         gaming = mkEnableOption "gaming packages";
 
+        browser = mkOption {
+          type = enum [
+            "brave"
+            "chromium"
+            "google-chrome"
+          ];
+          default = "brave";
+          description = "Which browser to use (will be wrapped with omarchy extensions)";
+        };
+
         fastfetchLogo = mkOption {
           type = nullOr path;
           default = null;
