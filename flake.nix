@@ -48,7 +48,6 @@
 
     omarchy = {
       url = "github:codingismy11to7/omarchy";
-      # url = "path:/home/steven/dev/omarchy";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
@@ -56,6 +55,11 @@
         flake-utils.follows = "flake-utils";
         home-manager.follows = "home-manager";
       };
+    };
+
+    stylix = {
+      url = "github:danth/stylix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
