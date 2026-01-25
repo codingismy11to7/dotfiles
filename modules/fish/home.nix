@@ -9,11 +9,12 @@ let
   inherit (lib) concatStringsSep getExe;
   inherit (osConfig.dotfiles) fastfetchLogo;
 
+  fastfetch = getExe pkgs.unstable.fastfetch;
   fastfetchCmd =
     if (fastfetchLogo == null) then
-      "fastfetch"
+      fastfetch
     else
-      "fastfetch --logo-height 23 --chafa ${fastfetchLogo}";
+      "${fastfetch} --logo-height 23 --chafa ${fastfetchLogo}";
 
   tte = getExe pkgs.unstable.terminaltexteffects;
 in

@@ -17,6 +17,7 @@ in
     ./podman/core.nix
     ./secrets/core.nix
     ./ssh/core.nix
+    ./stylix
     ./users/core.nix
     ./virt-manager/core.nix
     ./face-melter/core.nix

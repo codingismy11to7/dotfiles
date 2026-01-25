@@ -21,7 +21,7 @@ in
 
   omarchy = {
     enable = !headless;
-    theme = mkDefault "ethereal";
+    theme = mkDefault cfg.omarchyTheme;
     firstRunMode = mkDefault false;
     browser.webapp = mkDefault pkgs.unstable.microsoft-edge;
     font.name = mkDefault "FiraCode Nerd Font";

@@ -108,6 +108,18 @@ in
           default = null;
         };
 
+        omarchyTheme = mkOption {
+          type = str;
+          default = "ethereal";
+          description = "Omarchy theme name (used for stylix integration)";
+        };
+
+        stylixFromImage = mkOption {
+          type = bool;
+          default = false;
+          description = "If true, stylix generates colors from theme wallpaper. If false, uses omarchy's base16 color mapping.";
+        };
+
       };
     };
   };

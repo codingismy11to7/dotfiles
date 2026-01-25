@@ -29,6 +29,7 @@ in
         ./podman/home.nix
         ./secrets/home.nix
         ./services/home.nix
+        ./stylix/home.nix
         ./tealdeer/home.nix
         ./virt-manager/home.nix
         ./zellij/home.nix
