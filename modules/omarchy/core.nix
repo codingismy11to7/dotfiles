@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  lib,
   pkgs,
   ...
 }:
@@ -21,6 +22,11 @@ in
       portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
     };
     qtEnableAdwaita = true;
+    gaming = lib.mkIf cfg.gaming {
+      steam = true;
+      steamRealtime = true;
+      heroicGameLauncher = true;
+    };
     inherit username;
   };
 }

@@ -42,5 +42,16 @@ in
       lockSeconds = mkDefault 900;
       screenOffSeconds = mkDefault 960;
     };
+    # TODO: revisit, voxtype doesn't work properly with dvorak
+    # https://github.com/peteonrails/voxtype/issues/120
+    # voxtype = {
+    #   variant = mkDefault "vulkan";
+    #   model = mkDefault "large-v3-turbo";
+    #   ydotool = mkDefault pkgs.unstable.ydotool;
+    #   audioFeedback = {
+    #     theme = mkDefault "subtle";
+    #     volume = mkDefault 0.8;
+    #   };
+    # };
   };
 }
