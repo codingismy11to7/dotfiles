@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   osConfig,
@@ -13,6 +14,8 @@ let
     keyboardLayout
     keyboardVariant
     ;
+
+  browserPkg = pkgs.unstable.${cfg.browser};
 in
 {
   imports = [
@@ -23,7 +26,10 @@ in
     enable = !headless;
     theme = mkDefault cfg.omarchyTheme;
     firstRunMode = mkDefault false;
-    browser.webapp = mkDefault pkgs.unstable.microsoft-edge;
+    packages = {
+      inherit (pkgs.unstable) fastfetch obsidian;
+    };
+    browser.webapp = mkDefault (config.omarchy.browser.wrapWithExtension browserPkg);
     font.name = mkDefault "FiraCode Nerd Font";
     font.package = mkDefault pkgs.nerd-fonts.fira-code;
     keyboard = {
@@ -41,6 +47,44 @@ in
       activationSeconds = mkDefault 300;
       lockSeconds = mkDefault 900;
       screenOffSeconds = mkDefault 960;
+    };
+    webapps = {
+      basecamp.enable = mkDefault false;
+      chatgpt.enable = mkDefault false;
+      discord.enable = mkDefault false;
+      figma.enable = mkDefault false;
+      fizzy.enable = mkDefault false;
+      plex.enable = mkDefault true;
+      youtube-music.enable = mkDefault true;
+      whatsapp.enable = mkDefault false;
+      x.enable = mkDefault false;
+      custom = {
+        Radarr = {
+          url = "https://radarr.codingismy11to7.us";
+          icon = ./icons/radarr.svg;
+          singleton = false;
+        };
+        SABnzbd = {
+          url = "https://sabnzbd.codingismy11to7.us";
+          icon = ./icons/sabnzbd.svg;
+          singleton = false;
+        };
+        Sonarr = {
+          url = "https://sonarr.codingismy11to7.us";
+          icon = ./icons/sonarr.svg;
+          singleton = false;
+        };
+        Tautulli = {
+          url = "https://tautulli.codingismy11to7.us";
+          icon = ./icons/tautulli.svg;
+          singleton = false;
+        };
+        Wowhead = {
+          url = "https://www.wowhead.com";
+          icon = ./icons/wowhead.svg;
+          singleton = true;
+        };
+      };
     };
     # TODO: revisit, voxtype doesn't work properly with dvorak
     # https://github.com/peteonrails/voxtype/issues/120
