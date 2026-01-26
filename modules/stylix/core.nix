@@ -16,7 +16,7 @@ in
     inputs.stylix.nixosModules.stylix
   ];
 
-  stylix = lib.mkIf (!cfg.headless) {
+  stylix = {
     enable = true;
     autoEnable = false;
 
@@ -29,6 +29,7 @@ in
     # If not using image-derived colors, use omarchy's base16 mapping
     base16Scheme = lib.mkIf (!cfg.stylixFromImage) omarchyTheme.base16Scheme;
 
-    targets.chromium.enable = true;
+    # GUI targets only when not headless
+    targets.chromium.enable = !cfg.headless;
   };
 }

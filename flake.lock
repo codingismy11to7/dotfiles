@@ -130,6 +130,22 @@
         "type": "github"
       }
     },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -439,6 +455,27 @@
         "url": "https://codeberg.org/NicoElbers/nixPatch-nvim.git"
       }
     },
+    "nixos-wsl": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769217863,
+        "narHash": "sha256-RY9kJDXD6+2Td/59LkZ0PFSereCXHdBX9wIkbYjRKCY=",
+        "owner": "nix-community",
+        "repo": "NixOS-WSL",
+        "rev": "38a5250e57f583662eac3b944830e4b9e169e965",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NixOS-WSL",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1769142756,
@@ -585,11 +622,11 @@
         "walker": "walker"
       },
       "locked": {
-        "lastModified": 1769404016,
-        "narHash": "sha256-DzFptUrhFtvoOp8nZt6vuz2mzF+aqo5w44UAyKDlL8o=",
+        "lastModified": 1769529554,
+        "narHash": "sha256-Q/Fq8zZ4JNBOybTyiZqsaWkHXx0geBTTidYU2rzB2aM=",
         "owner": "codingismy11to7",
         "repo": "omarchy",
-        "rev": "e5c3a83b250e3fb8633ba9b1e584ce166966e43c",
+        "rev": "6b554f63a31f150e6540bf0846e7f78b6e6a612e",
         "type": "github"
       },
       "original": {
@@ -606,6 +643,7 @@
         "fleet": "fleet",
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
+        "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvim": "nvim",

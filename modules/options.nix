@@ -32,6 +32,12 @@ in
           description = "Whether this is a headless system (no GUI)";
         };
 
+        wsl = mkOption {
+          type = bool;
+          default = false;
+          description = "Whether this is a WSL system";
+        };
+
         virtManager = mkOption {
           type = bool;
           default = !config.dotfiles.headless;

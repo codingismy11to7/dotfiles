@@ -14,16 +14,20 @@ let
     keyboardLayout
     keyboardVariant
     ;
-
-  browserPkg = pkgs.unstable.${cfg.browser};
 in
-{
-  imports = [
-    inputs.omarchy.homeManagerModules.default
-  ];
+if headless then
+  { }
+else
+  let
+    browserPkg = pkgs.unstable.${cfg.browser};
+  in
+  {
+    imports = [
+      inputs.omarchy.homeManagerModules.default
+    ];
 
-  omarchy = {
-    enable = !headless;
+    omarchy = {
+    enable = true;
     theme = mkDefault cfg.omarchyTheme;
     firstRunMode = mkDefault false;
     packages = {

@@ -61,6 +61,11 @@
       url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -73,6 +78,7 @@
     let
       hosts = [
         "nixorge"
+        "nixowsl"
         "nixvm"
         "nixxy386"
       ];

@@ -1,8 +1,9 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
-  inherit (lib) getExe;
+  inherit (lib) getExe mkIf;
+  cfg = config.dotfiles;
 in
-{
+mkIf (!cfg.wsl) {
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
 
