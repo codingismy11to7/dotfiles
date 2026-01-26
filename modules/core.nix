@@ -20,6 +20,7 @@ in
     ./stylix
     ./users/core.nix
     ./virt-manager/core.nix
+    ./wsl/core.nix
     ./face-melter/core.nix
   ];
 
