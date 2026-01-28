@@ -28,6 +28,7 @@
     };
 
     nvim = {
+      # url = "path:/home/steven/dev/nvim";
       url = "github:codingismy11to7/nvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
