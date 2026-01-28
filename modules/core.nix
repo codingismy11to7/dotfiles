@@ -29,5 +29,7 @@ in
   services.fstrim.enable = bareMetal;
   services.smartd.enable = bareMetal;
 
+  programs.nix-ld.enable = true;
+
   system.stateVersion = "25.11";
 }
