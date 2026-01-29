@@ -49,6 +49,7 @@
 
     omarchy = {
       url = "github:codingismy11to7/omarchy";
+      # url = "path:/home/steven/dev/omarchy";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";

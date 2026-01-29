@@ -10,6 +10,7 @@
 
   dotfiles = {
     gaming = true;
+    videoEncoding = true;
     personal.gitEmail = "codingismy11to7@gmail.com";
   };
 }

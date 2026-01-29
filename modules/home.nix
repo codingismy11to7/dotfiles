@@ -31,6 +31,7 @@ in
         ./services/home.nix
         ./stylix/home.nix
         ./tealdeer/home.nix
+        ./video-encoding/home.nix
         ./virt-manager/home.nix
         ./zellij/home.nix
       ];

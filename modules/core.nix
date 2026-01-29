@@ -19,6 +19,7 @@ in
     ./ssh/core.nix
     ./stylix/core.nix
     ./users/core.nix
+    ./video-encoding/core.nix
     ./virt-manager/core.nix
     ./wsl/core.nix
     ./face-melter/core.nix
