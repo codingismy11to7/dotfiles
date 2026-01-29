@@ -33,6 +33,7 @@ in
     };
     qtEnableAdwaita = true;
     gaming = mkIf cfg.gaming {
+      enable = true;
       steam = true;
       steamRealtime = true;
       heroicGameLauncher = true;

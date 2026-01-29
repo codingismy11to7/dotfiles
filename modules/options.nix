@@ -109,6 +109,8 @@ in
 
         gaming = mkEnableOption "gaming packages";
 
+        videoEncoding = mkEnableOption "video encoding tools (Handbrake, MakeMKV)";
+
         browser = mkOption {
           type = enum [
             "brave"
