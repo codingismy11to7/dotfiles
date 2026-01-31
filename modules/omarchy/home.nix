@@ -8,32 +8,39 @@
 }:
 let
   cfg = osConfig.dotfiles;
-  inherit (lib) mkDefault;
+  inherit (lib) mkDefault mkIf mkMerge;
   inherit (cfg)
     headless
     keyboardLayout
     keyboardVariant
     ;
+  browserPkg = pkgs.unstable.${cfg.browser};
 in
-if headless then
-  { }
-else
-  let
-    browserPkg = pkgs.unstable.${cfg.browser};
-  in
-  {
-    imports = [
-      inputs.omarchy.homeManagerModules.default
-    ];
+{
+  imports = [
+    inputs.omarchy.homeManagerModules.default
+  ];
 
-    omarchy = {
-    enable = true;
+  omarchy = {
+    ai.claudeCode.enable = mkDefault true;
+
+    # Disable GUI components when headless
+    hyprland.enable = !headless;
+    terminal = if headless then null else mkDefault "ghostty";
+
     theme = mkDefault cfg.omarchyTheme;
     firstRunMode = mkDefault false;
-    packages = {
-      inherit (pkgs.unstable) fastfetch obsidian;
-    };
-    browser.webapp = mkDefault (config.omarchy.browser.wrapWithExtension browserPkg);
+    packages = mkMerge [
+      (mkIf (!headless) {
+        inherit (pkgs.unstable) fastfetch obsidian;
+      })
+      (mkIf headless {
+        imv = null;
+        mpv = null;
+        swayosd = null;
+      })
+    ];
+    browser.webapp = mkIf (!headless) (mkDefault (config.omarchy.browser.wrapWithExtension browserPkg));
     font.name = mkDefault "FiraCode Nerd Font";
     font.package = mkDefault pkgs.nerd-fonts.fira-code;
     keyboard = {
@@ -52,7 +59,7 @@ else
       lockSeconds = mkDefault 900;
       screenOffSeconds = mkDefault 960;
     };
-    webapps = {
+    webapps = mkIf (!headless) {
       basecamp.enable = mkDefault false;
       chatgpt.enable = mkDefault false;
       discord.enable = mkDefault false;

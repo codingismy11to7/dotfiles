@@ -73,7 +73,6 @@ in
   home = {
     shellAliases = {
       cat = "${getExe pkgs.bat}";
-      claude = "${pkgs.nodejs_24}/bin/npx -y @anthropic-ai/claude-code@latest";
       du = "${getExe pkgs.dust}";
       gembot = "${pkgs.nodejs_24}/bin/npx -y @google/gemini-cli@latest";
       lg = "${getExe pkgs.unstable.lazygit}";

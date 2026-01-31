@@ -30,6 +30,7 @@ in
 
   omarchy = {
     enable = !headless;
+    bash.enable = false;
     hyprland = {
       package = pkgs.unstable.hyprland;
       portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
