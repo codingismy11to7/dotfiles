@@ -70,6 +70,11 @@ in
       whatsapp.enable = mkDefault false;
       x.enable = mkDefault false;
       custom = {
+        Nextcloud = {
+          url = "https://nextcloud.codingismy11to7.us";
+          icon = ./icons/nextcloud.svg;
+          singleton = false;
+        };
         Radarr = {
           url = "https://radarr.codingismy11to7.us";
           icon = ./icons/radarr.svg;

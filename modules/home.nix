@@ -22,6 +22,7 @@ in
         ./fish/home.nix
         ./git/home.nix
         ./lazygit/home.nix
+        ./nextcloud/home.nix
         ./nix-your-shell/home.nix
         ./nvim/home.nix
         ./omarchy/home.nix
