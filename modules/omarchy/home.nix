@@ -46,6 +46,7 @@ else
       widerWindowGaps = mkDefault true;
       dwindleExtra = mkDefault "single_window_aspect_ratio = 16 9";
     };
+    ai.claudeCode.enable = mkDefault true;
     passwordManager = mkDefault "bitwarden";
     screensaver = {
       activationMinutes = mkDefault 5;
