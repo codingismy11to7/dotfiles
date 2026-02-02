@@ -14,6 +14,7 @@ in
     ./nvidia/core.nix
     ./omarchy/core.nix
     ./overlays/core.nix
+    ./plexamp/core.nix
     ./podman/core.nix
     ./secrets/core.nix
     ./ssh/core.nix

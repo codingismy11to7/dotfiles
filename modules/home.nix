@@ -26,6 +26,7 @@ in
         ./nvim/home.nix
         ./omarchy/home.nix
         ./packages/home.nix
+        ./plexamp/home.nix
         ./podman/home.nix
         ./secrets/home.nix
         ./services/home.nix
