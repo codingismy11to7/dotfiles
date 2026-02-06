@@ -43,7 +43,7 @@
   dotfiles = {
     kernel = "zen";
     omarchyTheme = "tokyo-night";
-    fastfetchLogo = ./terminus.png;
+    fastfetchLogo = ../terminus.png;
     personal.gitEmail = "steven@codemettle.com";
   };
 }

@@ -78,12 +78,8 @@
     }:
     with builtins;
     let
-      hosts = [
-        "nixorge"
-        "nixowsl"
-        "nixvm"
-        "nixxy386"
-      ];
+      hostsDir = readDir ./hosts;
+      hosts = filter (n: hostsDir.${n} == "directory") (attrNames hostsDir);
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;

@@ -6,3 +6,7 @@ At the start of each session, initialize the MCP servers:
 2. **Serena MCP** - Call `mcp__plugin_serena_serena__activate_project` with project `dotfiles`
 
 Serena may take a moment to start up, so check both are responsive before proceeding.
+
+# Pre-Flight Check
+
+Before making any changes, read the flake.nix to understand inputs and structure, then find all existing declarations related to the feature across both system-level and home-manager modules. List every file that needs to change and what each change will be. Wait for user approval before editing.
