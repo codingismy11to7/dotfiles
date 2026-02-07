@@ -47,6 +47,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    claude-code-nix = {
+      url = "github:sadjow/claude-code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
     omarchy = {
       url = "github:codingismy11to7/omarchy";
       # url = "path:/home/steven/dev/omarchy";
@@ -56,6 +62,7 @@
         flake-parts.follows = "flake-parts";
         flake-utils.follows = "flake-utils";
         home-manager.follows = "home-manager";
+        claude-code-nix.follows = "claude-code-nix";
       };
     };
 
