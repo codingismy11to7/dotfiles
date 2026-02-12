@@ -24,6 +24,11 @@ in
   omarchy = {
     ai.claudeCode.enable = mkDefault true;
 
+    git = {
+      userName = mkDefault cfg.personal.fullName;
+      userEmail = mkDefault cfg.personal.gitEmail;
+    };
+
     # Disable GUI components when headless
     hyprland.enable = !headless;
     terminal = if headless then null else mkDefault "ghostty";
@@ -31,6 +36,7 @@ in
     theme = mkDefault cfg.omarchyTheme;
     firstRunMode = mkDefault false;
     packages = mkMerge [
+      { inherit (pkgs.unstable) fzf git; }
       (mkIf (!headless) {
         inherit (pkgs.unstable) fastfetch obsidian;
       })
