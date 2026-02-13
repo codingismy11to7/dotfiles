@@ -29,6 +29,7 @@ in
         ./podman/home.nix
         ./secrets/home.nix
         ./services/home.nix
+        ./syncthing/home.nix
         ./stylix/home.nix
         ./tealdeer/home.nix
         ./video-encoding/home.nix

@@ -8,6 +8,7 @@ with builtins;
 let
   inherit (lib.options) mkOption mkEnableOption mkPackageOption;
   inherit (lib.types)
+    attrsOf
     nullOr
     bool
     enum
@@ -145,6 +146,19 @@ in
               };
             };
           };
+        };
+
+        syncthing.devices = mkOption {
+          type = attrsOf str;
+          default = {
+            "jorge" = "EDF6L7D-2X5FJXS-N6MXOA5-COWXPGW-76NOVX2-KWSLEQL-S72S7MA-AYBQUAG";
+            "nixorge" = "HOKYAKR-YOII4O7-FWR3QVL-5Z3J2LM-WODEPK3-HXOOFMA-CZVS3OC-6PJSQQX";
+            "nixowsl" = "74I2NVA-JJX44MI-GNSKPAY-A4CXUSB-EV5C2RN-IN6T7DX-Q6VZM7E-A4E5JQZ";
+            "nixxy386" = "PHURYRC-CZUYUEE-433AVVV-CKTHPOV-PTBMZ74-H5LAGYY-J6TBKKY-RIENDQZ";
+            "Pixel 10 Pro XL" = "SLRZ6ZQ-R6YDDPJ-IKY5U42-2DAJHVG-ALB4UEA-UVB3XXT-6XCZGTB-PBLECQD";
+            "surface" = "K5FTICV-5X5UAS3-TR6V2KP-2TBVZOE-K7LY7FQ-IN5UH4M-SJF3NEJ-4ABLQQL";
+          };
+          description = "Syncthing devices (name -> device ID) to share folders with";
         };
 
         omarchyTheme = mkOption {

@@ -26,6 +26,7 @@
     ];
 
     services.tailscale-systray.enable = true;
+
     omarchy = {
       screensaver.text = builtins.readFile ./cm.txt;
       hyprland.monitorConfig = ''
