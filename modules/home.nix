@@ -21,7 +21,6 @@ in
         ./face-melter/home.nix
         ./fish/home.nix
         ./lazygit/home.nix
-        ./nextcloud/home.nix
         ./nix-your-shell/home.nix
         ./nvim/home.nix
         ./omarchy/home.nix

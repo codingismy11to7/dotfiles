@@ -105,49 +105,6 @@ in
           default = null;
         };
 
-        nextcloud = mkOption {
-          default = { };
-          type = submodule {
-            options = {
-              enable = mkEnableOption "Nextcloud sync service" // {
-                default = true;
-              };
-
-              package = mkPackageOption pkgs.unstable "nextcloud-client" { };
-
-              username = mkOption {
-                type = str;
-                default = "codingismy11to7";
-                description = "Nextcloud username for authentication";
-              };
-
-              subdirectory = mkOption {
-                type = str;
-                default = "nextcloud";
-                description = "Subdirectory in home folder to sync to";
-              };
-
-              url = mkOption {
-                type = str;
-                default = "https://nextcloud.codingismy11to7.us";
-                description = "Nextcloud server URL";
-              };
-
-              onBootTime = mkOption {
-                type = str;
-                default = "1min";
-                description = "Time after boot before first sync";
-              };
-
-              onUnitActiveTime = mkOption {
-                type = str;
-                default = "10min";
-                description = "Time between syncs";
-              };
-            };
-          };
-        };
-
         syncthing.devices = mkOption {
           type = attrsOf str;
           default = {

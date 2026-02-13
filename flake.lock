@@ -666,11 +666,11 @@
         "terminaltexteffects": "terminaltexteffects_2"
       },
       "locked": {
-        "lastModified": 1769931000,
-        "narHash": "sha256-ddPGImv9eu2chSH7cvcg8quslCqwV8xUuZH5iDh26O0=",
+        "lastModified": 1773359323,
+        "narHash": "sha256-9fMA0EQB+brOEmrneA9YEYAg6tsUbm5irr88BNEgboY=",
         "owner": "codingismy11to7",
         "repo": "secrets",
-        "rev": "c3e58412ceece03432e96e860e879ceccc96d668",
+        "rev": "3bf8532ab783ba078663c62c5a59530c9ef19824",
         "type": "github"
       },
       "original": {
