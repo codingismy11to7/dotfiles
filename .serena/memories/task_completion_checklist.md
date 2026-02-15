@@ -29,6 +29,13 @@ nh os test .
 nh os switch .
 ```
 
+## Documentation
+- [ ] **Check if documentation should be updated** (especially for config changes)
+- [ ] If today's daily note doesn't exist, ask to create it or update yesterday's
+- [ ] Update `nixos.md` if the change affects packages, modules, or system config
+- [ ] Create bidirectional links between daily notes and nixos.md
+- [ ] See `documentation_workflow` memory for full details
+
 ## Commits
 - [ ] Use descriptive commit messages
 - [ ] Don't use `git push --force` (use `--force-with-lease` if needed)
