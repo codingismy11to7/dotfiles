@@ -17,6 +17,7 @@ in
 
     users.${username} = {
       imports = [
+        ./claude/home.nix
         ./direnv/home.nix
         ./face-melter/home.nix
         ./fish/home.nix
