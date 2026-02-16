@@ -130,6 +130,12 @@ in
           description = "If true, stylix generates colors from theme wallpaper. If false, uses omarchy's base16 color mapping.";
         };
 
+        dotfilesPath = mkOption {
+          type = path;
+          default = "${config.users.defaultUserHome}/${config.dotfiles.personal.username}/dotfiles";
+          description = "Absolute path to the dotfiles repo on this machine";
+        };
+
       };
     };
   };
