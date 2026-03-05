@@ -1,10 +1,5 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
-  environment.systemPackages = [ pkgs.unstable.pritunl-client ];
-
-  systemd.packages = [ pkgs.unstable.pritunl-client ];
-  systemd.services.pritunl-client.wantedBy = [ "multi-user.target" ];
-
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "client";
