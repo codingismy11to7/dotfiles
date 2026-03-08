@@ -23,6 +23,7 @@
     services.tailscale-systray.enable = true;
 
     omarchy = {
+      media.sensitiveVolume = true;
       screensaver.text = builtins.readFile ./cm.txt;
       hyprland.monitorConfig = ''
         env = GDK_SCALE,1.25
