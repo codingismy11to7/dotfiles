@@ -13,6 +13,7 @@
 
   dotfiles = {
     gaming = true;
+    kernel = "zen";
     videoEncoding = true;
     personal.gitEmail = "codingismy11to7@gmail.com";
   };
