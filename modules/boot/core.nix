@@ -5,7 +5,11 @@ let
 in
 mkIf (!cfg.wsl) {
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = {
+      zen = pkgs.linuxPackages_zen;
+      latest = pkgs.linuxPackages_latest;
+      default = pkgs.linuxPackages;
+    }.${cfg.kernel};
 
     loader = {
       systemd-boot.enable = true;

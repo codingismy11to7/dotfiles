@@ -86,6 +86,18 @@ in
           };
         };
 
+        kernel = mkOption {
+          type = enum [
+            "zen"
+            "latest"
+            "default"
+          ];
+          # Mar 12 2026 zen is broken
+          # default = "zen";
+          default = "latest";
+          description = "Which kernel to use";
+        };
+
         gaming = mkEnableOption "gaming packages";
 
         videoEncoding = mkEnableOption "video encoding tools (Handbrake, MakeMKV)";
