@@ -91,6 +91,29 @@
         "type": "github"
       }
     },
+    "codex-cli-nix": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773944613,
+        "narHash": "sha256-YPgI5DAfcwcWOjHGERsTha/SuuRt7l+oOTGT94G643s=",
+        "owner": "sadjow",
+        "repo": "codex-cli-nix",
+        "rev": "7937d799ae69e7ded828b8aef5d26e89fbbc817f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sadjow",
+        "repo": "codex-cli-nix",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -596,6 +619,9 @@
         "claude-code-nix": [
           "claude-code-nix"
         ],
+        "codex-cli-nix": [
+          "codex-cli-nix"
+        ],
         "elephant": "elephant",
         "flake-parts": [
           "flake-parts"
@@ -618,11 +644,11 @@
         "walker": "walker"
       },
       "locked": {
-        "lastModified": 1774035157,
-        "narHash": "sha256-9XN8fLbX9oAMgggZbhsteaOUtQQf+k+tqSWhUwMy4OE=",
+        "lastModified": 1774972415,
+        "narHash": "sha256-VoFHkqLSxJSsNS4DxtqgDozZOXCdCc4xCuOej/6fAZU=",
         "owner": "codingismy11to7",
         "repo": "omarchy",
-        "rev": "33e30b7d4a965c2c1ae0205cef5f27e01392002e",
+        "rev": "33b8a21193963d6bec12356c327a0478157d43ad",
         "type": "github"
       },
       "original": {
@@ -634,6 +660,7 @@
     "root": {
       "inputs": {
         "claude-code-nix": "claude-code-nix",
+        "codex-cli-nix": "codex-cli-nix",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
