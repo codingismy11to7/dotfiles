@@ -1,4 +1,9 @@
-{ lib, osConfig, pkgs, ... }:
+{
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 let
   cfg = osConfig.dotfiles;
   inherit (cfg) headless;
@@ -7,6 +12,7 @@ in
 {
   omarchy = {
     ai.claudeCode.enable = mkDefault true;
+    ai.codexCli.enable = mkDefault true;
 
     firstRunMode = mkDefault false;
     font.name = mkDefault "FiraCode Nerd Font";
