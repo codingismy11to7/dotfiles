@@ -15,12 +15,14 @@ let
   stablePackages = with pkgs; [
     diffutils
     ffmpeg
+    file
     findutils
     flac
     lame
     sshfs
     unrar
     unzip
+    wget
     wl-clipboard # wsl is "headless" but needs to copy to wayland
     zip
   ];
