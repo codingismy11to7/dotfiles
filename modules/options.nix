@@ -148,6 +148,12 @@ in
           description = "Absolute path to the dotfiles repo on this machine";
         };
 
+        wireshark = mkOption {
+          type = bool;
+          default = false;
+          description = "Whether to enable Wireshark";
+        };
+
       };
     };
   };
