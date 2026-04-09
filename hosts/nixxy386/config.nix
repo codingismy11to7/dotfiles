@@ -1,5 +1,7 @@
 { config, ... }:
 {
+  dotfiles.wireshark = true;
+
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "client";

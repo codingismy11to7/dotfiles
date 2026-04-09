@@ -21,6 +21,7 @@ in
     ./users/core.nix
     ./video-encoding/core.nix
     ./virt-manager/core.nix
+    ./wireshark/core.nix
     ./wsl/core.nix
     ./face-melter/core.nix
   ];
