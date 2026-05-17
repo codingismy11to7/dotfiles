@@ -82,6 +82,11 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland/v0.54.3";
+      inputs.systems.follows = "systems";
+    };
   };
 
   outputs =

@@ -15,6 +15,7 @@ let
     keyboardLayout
     keyboardVariant
     ;
+  inherit (pkgs.stdenv.hostPlatform) system;
   browserPkg = pkgs.unstable.${cfg.browser};
 
   hostname = osConfig.networking.hostName;
@@ -93,6 +94,6 @@ in
       layout = mkDefault keyboardLayout;
       variant = mkDefault keyboardVariant;
     };
-    hyprland.package = mkDefault pkgs.unstable.hyprland;
+    hyprland.package = mkDefault inputs.hyprland.packages.${system}.hyprland;
   };
 }
