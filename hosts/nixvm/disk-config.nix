@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      nixorge = {
+      omarchyvm = {
         type = "disk";
         device = "/dev/vda";
         content = {

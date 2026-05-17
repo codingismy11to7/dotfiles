@@ -29,7 +29,6 @@ in
     screensaver = {
       activationSeconds = mkDefault 300;
       lockSeconds = mkDefault 900;
-      screenOffSeconds = mkDefault 960;
     };
     webapps = mkIf (!headless) {
       basecamp.enable = mkDefault false;
