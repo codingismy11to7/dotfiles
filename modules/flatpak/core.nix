@@ -13,6 +13,7 @@ in
     ] ++ lib.optionals cfg.gaming [
       "com.dosbox_x.DOSBox-X"
       "io.github.dosbox-staging"
+      "org.DolphinEmu.dolphin-emu"
     ];
     update.onActivation = true;
   };
