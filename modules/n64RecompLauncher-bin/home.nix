@@ -36,13 +36,13 @@ let
     pkgs.pango
     pkgs.SDL2
     pkgs.stdenv.cc.cc.lib
-    pkgs.xorg.libICE
-    pkgs.xorg.libSM
-    pkgs.xorg.libX11
-    pkgs.xorg.libXcursor
-    pkgs.xorg.libXext
-    pkgs.xorg.libXi
-    pkgs.xorg.libXrandr
+    pkgs.libice
+    pkgs.libsm
+    pkgs.libx11
+    pkgs.libxcursor
+    pkgs.libxext
+    pkgs.libxi
+    pkgs.libxrandr
   ];
 
   n64RecompLauncher-bin = pkgs.stdenv.mkDerivation {
