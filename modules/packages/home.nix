@@ -60,5 +60,8 @@ in
     noDisplay = true;
   };
 
-  programs.yazi.enable = true;
+  programs.yazi = {
+    enable = true;
+    shellWrapperName = "yy";
+  };
 }

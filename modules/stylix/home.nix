@@ -21,7 +21,7 @@ in
     (mkIf (!cfg.headless) {
       # Targets are configured via stylix.targets.<name>.enable
       # Available targets include: firefox, gtk, qt, kitty, alacritty, etc.
-      # See: https://github.com/danth/stylix/tree/release-25.11/modules
+      # See: https://github.com/danth/stylix/tree/release-26.05/modules
 
       # Enable specific targets here as needed
       # firefox.enable = true;
