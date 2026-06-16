@@ -22,6 +22,8 @@ in
       interop.register = true;
     };
 
+    networking.resolvconf.enable = false;
+
     environment.systemPackages = with pkgs; [
       wsl-open
       xdg-utils
