@@ -31,13 +31,12 @@
         media.sensitiveVolume = true;
         screensaver.text = builtins.readFile ./cm.txt;
         hyprland.monitorConfig = ''
-          env = GDK_SCALE,1.25
-          monitor=,preferred,auto,1.6
+          hl.env("GDK_SCALE", "1.25")
+          hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1.6 })
         '';
-        hyprland.bindings = [
-          "bindl = , switch:on:Lid Switch, exec, hyprctl keyword monitor \"eDP-1, disable\""
-          "bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor \"eDP-1, preferred, auto, 1.6\""
-        ];
+        # Lid-switch handling is now upstream (omarchy default/hypr/bindings/utilities.lua
+        # binds Lid Switch to omarchy-hyprland-monitor-internal), so the custom
+        # bindl entries were dropped in the hyprland-lua migration.
         webapps.figma.enable = true;
       };
     };
