@@ -8,11 +8,11 @@
       terminal = "kitty";
       hyprland = {
         monitorConfig = ''
-          env = GDK_SCALE,1
-          monitor=Virtual-1,1920x1080,auto,1
+          hl.env("GDK_SCALE", "1")
+          hl.monitor({ output = "Virtual-1", mode = "1920x1080", position = "auto", scale = 1 })
         '';
         widerWindowGaps = false;
-        dwindleExtra = "single_window_aspect_ratio = 4 3";
+        dwindleExtra = "hl.config({ layout = { single_window_aspect_ratio = { 4, 3 } } })";
       };
     };
   };

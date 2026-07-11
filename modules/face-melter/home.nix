@@ -51,7 +51,7 @@ else
   omarchy.hyprland = {
     envs.YDOTOOL_SOCKET = "/run/ydotool/socket";
     bindings = [
-      "bindd = CTRL, F11, Melt Faces, exec, repeat_key_toggle"
+      ''o.bind("CTRL + F11", "Melt Faces", "repeat_key_toggle")''
     ];
   };
 }

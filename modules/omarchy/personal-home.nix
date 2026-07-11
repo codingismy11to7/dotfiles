@@ -20,7 +20,7 @@ in
     keyboard.options = mkDefault "compose:ralt";
     hyprland = {
       widerWindowGaps = mkDefault true;
-      dwindleExtra = mkDefault "single_window_aspect_ratio = 16 9";
+      dwindleExtra = mkDefault "hl.config({ layout = { single_window_aspect_ratio = { 16, 9 } } })";
     };
     packages = mkIf (!headless) {
       inherit (pkgs.unstable) fastfetch obsidian;
