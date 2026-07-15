@@ -330,11 +330,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769212616,
-        "narHash": "sha256-0ddBtAOipWkPAzWgEFpkO/EPm9ZIykJhgvR9ilm1DiM=",
+        "lastModified": 1784139612,
+        "narHash": "sha256-XpVAGZcFwmT0+5/Hmwxo61JMprPC6KONgWq3wjSf4n4=",
         "owner": "codingismy11to7",
         "repo": "fleetdm-nix",
-        "rev": "1b9204e49c73a1095326765e1b96e05dfa619a39",
+        "rev": "db96db22ca973c4cea49c187eeb0c7dc2055a211",
         "type": "github"
       },
       "original": {
