@@ -50,7 +50,7 @@
     claude-code-nix = {
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs.systems.follows = "systems";
     };
 
     codex-cli-nix = {
