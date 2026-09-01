@@ -27,8 +27,15 @@ let
     zip
   ];
 
+  # TEMPORARY: nixpkgs is on obscura 0.2.0, which strands the page between MCP
+  # tool calls. Drop this and uncomment the one-liner below once nixpkgs is on
+  # 0.2.1 or newer. See obscura-0.2.1.nix.
+  obscuraWithMcpFix = pkgs.unstable.callPackage ./obscura-0.2.1.nix { };
+
   unstablePackages = with pkgs.unstable; [
     fzf
+    # obscura # headless/mcp browser
+    obscuraWithMcpFix
     yt-dlp
   ];
 
