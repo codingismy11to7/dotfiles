@@ -974,11 +974,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777644747,
-        "narHash": "sha256-OZFczDqVjKRLvigypu7A9zYvTjXy1vmQwehn1Wpr0LI=",
+        "lastModified": 1788799827,
+        "narHash": "sha256-Km+BLRi2eHe/vcry84pp3z2nLsRhRkAWD1irn96OEn0=",
         "owner": "codingismy11to7",
         "repo": "nvim",
-        "rev": "8e75b00e7e00c90b841d5818e31a9c3cfbec2b47",
+        "rev": "6a98ba5cf28d7b918c20a228ff933c1ea07bdbee",
         "type": "github"
       },
       "original": {
