@@ -841,6 +841,27 @@
         "url": "https://codeberg.org/NicoElbers/nixPatch-nvim.git"
       }
     },
+    "nixdatifier": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791743722,
+        "narHash": "sha256-KUQFeR+l0bXMvgb6J8sB+rr33tW6ZBMlu75W1UBOR80=",
+        "owner": "codingismy11to7",
+        "repo": "nixdatifier",
+        "rev": "76958379a2ba01a280232ec120673bcacb67a81d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "codingismy11to7",
+        "ref": "feat/test-build-indicator",
+        "repo": "nixdatifier",
+        "type": "github"
+      }
+    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -1084,6 +1105,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nix-flatpak": "nix-flatpak",
+        "nixdatifier": "nixdatifier",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",

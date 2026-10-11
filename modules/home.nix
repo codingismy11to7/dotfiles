@@ -23,6 +23,7 @@ in
         ./fish/home.nix
         ./lazygit/home.nix
         ./nix-your-shell/home.nix
+        ./nixdatifier/home.nix
         ./n64RecompLauncher-bin/home.nix
         ./nvim/home.nix
         ./omarchy/home.nix
