@@ -1030,6 +1030,26 @@
         "type": "github"
       }
     },
+    "plexamp": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791811867,
+        "narHash": "sha256-Djjxq7P4rucPBykWM8fs1ZxtbhY7dpRRkG58ZwknZ30=",
+        "owner": "codingismy11to7",
+        "repo": "plexamp-nix",
+        "rev": "e58f9f5f988a714d42fbe565ad0a456d28391184",
+        "type": "github"
+      },
+      "original": {
+        "owner": "codingismy11to7",
+        "repo": "plexamp-nix",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -1069,6 +1089,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvim": "nvim",
         "omarchy": "omarchy",
+        "plexamp": "plexamp",
         "secrets": "secrets",
         "sentinelone": "sentinelone",
         "stylix": "stylix",
