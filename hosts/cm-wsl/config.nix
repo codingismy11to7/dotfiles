@@ -4,6 +4,7 @@
     headless = true;
     omarchyTheme = "tokyo-night";
     wsl = true;
+    nixdatifier = true;
     fastfetchLogo = ../terminus.png;
     personal.gitEmail = "steven@codemettle.com";
   };

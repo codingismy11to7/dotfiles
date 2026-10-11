@@ -52,6 +52,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixdatifier = {
+      # Fork carrying the test-build indicator (Muddyblack/nixdatifier PR pending);
+      # switch back to github:Muddyblack/nixdatifier once it's merged.
+      url = "github:codingismy11to7/nixdatifier/feat/test-build-indicator";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     claude-code-nix = {
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";

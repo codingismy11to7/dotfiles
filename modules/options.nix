@@ -154,6 +154,8 @@ in
           description = "Whether to enable Wireshark";
         };
 
+        nixdatifier = mkEnableOption "the nixdatifier binary on headless machines (run manually; no tray/autostart)";
+
       };
     };
   };
