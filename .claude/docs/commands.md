@@ -1,6 +1,7 @@
 # Suggested Commands
 
 ## Development Environment
+
 ```bash
 # Enter development shell (auto-loaded via direnv)
 nix develop
@@ -10,6 +11,7 @@ direnv status
 ```
 
 ## Flake Input Updates
+
 ```bash
 # NEVER run `nix flake update` (updates ALL inputs) unless explicitly instructed
 # Always update specific inputs only:
@@ -20,6 +22,7 @@ nix flake update omarchy
 ```
 
 ## Build and Apply Configuration
+
 ```bash
 # Build configuration (check for errors, doesn't apply)
 nh os build .
@@ -29,15 +32,12 @@ nh os test .
 
 # Apply and switch to new configuration (persistent)
 nh os switch .
-
-# Update flake inputs
-nix flake update
-
-# Update specific input
-nix flake update <input-name>
 ```
 
+To check that one host evaluates without building or applying anything, use `nix eval .#nixosConfigurations.<host>.config.system.build.toplevel.drvPath`.
+
 ## Hot-Reload Development
+
 ```bash
 # Watch .nix files and rebuild on changes
 dev-mode
@@ -47,6 +47,7 @@ dev-mode --apply
 ```
 
 ## Formatting
+
 ```bash
 # Format a specific Nix file
 nix fmt <file.nix>
@@ -56,12 +57,14 @@ nix fmt
 ```
 
 ## Remote Deployment
+
 ```bash
 # Deploy to a remote machine (interactive script)
 deploy
 ```
 
 ## Git Workflow
+
 ```bash
 # Stage new files (required for flakes to see them)
 git add <file>
@@ -71,6 +74,7 @@ git push --force-with-lease
 ```
 
 ## Linting / Static Analysis
+
 ```bash
 # Run statix to check for anti-patterns and issues
 statix check .
@@ -86,6 +90,7 @@ deadnix -e .
 ```
 
 ## Debugging
+
 ```bash
 # Evaluate a specific option
 nix eval .#nixosConfigurations.<host>.config.<option>
