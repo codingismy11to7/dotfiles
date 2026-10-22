@@ -12,6 +12,9 @@
   home-manager.users.${config.dotfiles.personal.username} =
     { pkgs, ... }:
     {
-      home.packages = [ pkgs.glab ];
+      home.packages = [
+        pkgs.unstable.acli
+        pkgs.glab
+      ];
     };
 }

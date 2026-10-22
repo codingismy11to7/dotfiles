@@ -17,6 +17,7 @@
     { pkgs, ... }:
     {
       home.packages = [
+        pkgs.unstable.acli
         pkgs.glab
         pkgs.unstable.jetbrains-toolbox
         pkgs.unstable.snyk
