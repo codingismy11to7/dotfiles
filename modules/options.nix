@@ -9,6 +9,7 @@ let
   inherit (lib.options) mkOption mkEnableOption mkPackageOption;
   inherit (lib.types)
     attrsOf
+    listOf
     nullOr
     bool
     enum
@@ -128,6 +129,12 @@ in
             "surface" = "K5FTICV-5X5UAS3-TR6V2KP-2TBVZOE-K7LY7FQ-IN5UH4M-SJF3NEJ-4ABLQQL";
           };
           description = "Syncthing devices (name -> device ID) to share folders with";
+        };
+
+        zerotier.networks = mkOption {
+          type = listOf str;
+          default = [ ];
+          description = "ZeroTier network IDs to join (enables zerotierone when non-empty)";
         };
 
         omarchyTheme = mkOption {

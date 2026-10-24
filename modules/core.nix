@@ -23,6 +23,7 @@ in
     ./virt-manager/core.nix
     ./wireshark/core.nix
     ./wsl/core.nix
+    ./zerotier/core.nix
     ./face-melter/core.nix
   ];
 

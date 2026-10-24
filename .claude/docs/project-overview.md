@@ -67,6 +67,7 @@ See `modules/options.nix` for the authoritative list. Current options:
 - `browser`: Which browser ("brave", "chromium", "google-chrome")
 - `fastfetchLogo`: Optional custom fastfetch logo path
 - `syncthing.devices`: Syncthing device name → ID map
+- `zerotier.networks`: ZeroTier network IDs to join; enables `zerotierone` when non-empty (default: `[]`)
 - `omarchyTheme`: Theme name (default: "ethereal")
 - `stylixFromImage`: Generate colors from wallpaper
 - `dotfilesPath`: Absolute path to this repo on the machine

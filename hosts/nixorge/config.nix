@@ -25,5 +25,6 @@
     kernel = "zen";
     videoEncoding = true;
     personal.gitEmail = "codingismy11to7@gmail.com";
+    zerotier.networks = [ "af415e486f03d77f" ];
   };
 }
