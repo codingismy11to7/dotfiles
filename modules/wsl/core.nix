@@ -24,6 +24,15 @@ in
 
     networking.resolvconf.enable = false;
 
+    # WSL 3.x generates wsl-mnt-guard.service with ExecStart=/bin/true, which doesn't exist on NixOS
+    systemd.services.wsl-mnt-guard = {
+      overrideStrategy = "asDropin";
+      serviceConfig.ExecStart = [
+        ""
+        "${pkgs.coreutils}/bin/true"
+      ];
+    };
+
     environment.systemPackages = with pkgs; [
       wsl-open
       xdg-utils
