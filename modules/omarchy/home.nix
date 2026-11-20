@@ -8,7 +8,12 @@
 }:
 let
   cfg = osConfig.dotfiles;
-  inherit (lib) getExe mkDefault mkIf mkMerge;
+  inherit (lib)
+    getExe
+    mkDefault
+    mkIf
+    mkMerge
+    ;
   inherit (cfg)
     dotfilesPath
     headless
@@ -58,6 +63,16 @@ let
     esac
   '';
 
+  # Desktop file each supported browser ships, used to make it the xdg default
+  browserDesktopFile =
+    {
+      brave = "com.brave.Browser.desktop";
+      chromium = "chromium-browser.desktop";
+      google-chrome = "google-chrome.desktop";
+      microsoft-edge = "microsoft-edge.desktop";
+    }
+    .${cfg.browser};
+
   themeSetWrapper = pkgs.writeShellScriptBin "dotfiles-theme-set-menu" ''
     exec omarchy-launch-floating-terminal-with-presentation "${getExe themeSetScript} $1"
   '';
@@ -68,7 +83,20 @@ in
     ./personal-home.nix
   ];
 
-  home.packages = [ themeSetScript themeSetWrapper ];
+  home.packages = [
+    themeSetScript
+    themeSetWrapper
+  ];
+
+  # Without an explicit default, xdg-settings picks whichever installed browser
+  # it finds first (e.g. the chromium kept around for chrome-devtools-mcp)
+  xdg.mimeApps.defaultApplications = mkIf (!headless) {
+    "text/html" = browserDesktopFile;
+    "x-scheme-handler/http" = browserDesktopFile;
+    "x-scheme-handler/https" = browserDesktopFile;
+    "x-scheme-handler/about" = browserDesktopFile;
+    "x-scheme-handler/unknown" = browserDesktopFile;
+  };
 
   omarchy = {
     git = {

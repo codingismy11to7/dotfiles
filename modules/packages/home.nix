@@ -10,8 +10,6 @@ let
   inherit (cfg) headless gaming;
   inherit (lib) mkIf;
 
-  browserPkg = pkgs.unstable.${cfg.browser};
-
   stablePackages = with pkgs; [
     diffutils
     ffmpeg
@@ -47,7 +45,7 @@ let
       with pkgs.unstable;
       [
         bitwarden-desktop
-        (config.omarchy.browser.wrapWithExtension browserPkg)
+        config.omarchy.browser.webapp # wrapped in modules/omarchy/home.nix
         discord
         feishin
         slack

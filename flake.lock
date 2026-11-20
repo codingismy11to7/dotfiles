@@ -1038,11 +1038,11 @@
         "walker": "walker"
       },
       "locked": {
-        "lastModified": 1794079837,
-        "narHash": "sha256-LEKF2hvjN8GscLiUzerYm7DCip94HT4rZLZl2mVNUUk=",
+        "lastModified": 1795192376,
+        "narHash": "sha256-uSdlEBUPQkzZCOJXFx5vL8SNzf14uS/3DAobL3GrgMI=",
         "owner": "codingismy11to7",
         "repo": "omarchy",
-        "rev": "88740d42595cd3ed7139b745ea6b79c6db7bc32c",
+        "rev": "f7c7f0a3a5a9446e9ead79cd35a451eeb564747f",
         "type": "github"
       },
       "original": {

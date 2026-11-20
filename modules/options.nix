@@ -107,9 +107,10 @@ in
           type = enum [
             "brave"
             "chromium"
+            "microsoft-edge"
             "google-chrome"
           ];
-          default = "brave";
+          default = "microsoft-edge";
           description = "Which browser to use (will be wrapped with omarchy extensions)";
         };
 
